@@ -1,0 +1,17 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cy:open:int": "npx cypress open --env ENV=INT",
+    "cy:open:demo": "nx e2e e2e --watch --env ENV=DEMO",
+    "cy:open:prod": "nx e2e e2e --watch --env ENV=PROD"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^12.13.0"
+  }
+}
