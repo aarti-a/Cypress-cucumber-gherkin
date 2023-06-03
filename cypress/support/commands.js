@@ -18,32 +18,6 @@ Cypress.Commands.add('getUtil', function () {
   return util;
 });
 
-Cypress.Commands.add('login', function () {
- cy.visit(util.getBaseUrl())
-
-
- cy.origin('https://mareldigitalintb2c.b2clogin.com', {args: {userName: util.getUserName(), pw: util.getPassword()}}, ({userName, pw}) => {
-     cy.wait(2000);
-
-  cy.location().then(() => {
-    cy.get('#email.textInput').type(userName, { log: false });
-    cy.get('#continue').click();
-    cy.wait(2000);
-    cy.get('#signInName').type(userName, { log: false });
-    cy.get('#password').type(pw)
-    cy.get('#next').click();
-  
-  });
-});
-})
-
-Cypress.Commands.add('navigate_modules', function (module) {
-  cy.get('.menu-button', { timeout: 5000 }).click();
-  cy.wait(2000);
-  if (module === 'model_optimization') {
-    cy.get('[data-item-id="6"] > .dx-item > .router-link').click();
-  }
-});
 
 // Cypress.Commands.add('login', (email, password) => { ... })
 //
