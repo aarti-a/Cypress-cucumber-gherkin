@@ -1,11 +1,12 @@
 /// <reference types="Cypress" />
 
 const dayjs = require('dayjs');
+const chance = require('chance');
 
 export class utility {
 
-  getUserName = () => Cypress.env('USER_NAME');
-  getPassword = () => Cypress.env('PASSWORD');
+  getUserName = () => Cypress.env('username');
+  getPassword = () => Cypress.env('password');
 
   getDays = () => dayjs();
   getChance = () => chance();

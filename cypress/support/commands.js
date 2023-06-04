@@ -1,15 +1,4 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --/// <reference types="Cypress" />
+
 
 import { utility } from './util.js';
 const util = new utility();
@@ -19,16 +8,13 @@ Cypress.Commands.add('getUtil', function () {
 });
 
 
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('login', () => {
+  cy.visit('/')
+  cy.location().then(() => {
+    cy.contains('Sign in',{timeout:5000}).click()
+    cy.title().should('eq', 'Account sign in: Starbucks Coffee Company')
+    cy.get('#username').type(util.getUserName(),  {timeout:5000,force: true, log: false });
+    cy.get('#password').type(util.getPassword(), {timeout:5000, log: false }); 
+    cy.get('[data-e2e="signInButton"]',{timeout:5000}).click()
+  });
+});
