@@ -7,12 +7,13 @@ export class utility {
 
   getUserName = () => Cypress.env('username');
   getPassword = () => Cypress.env('password');
+  getApiKey = () => Cypress.env('api_key');
+  
+  'dogApiUrl' = 'https://api.thedogapi.com/v1/images/search'
+
 
   getDays = () => dayjs();
   getChance = () => chance();
-
-  write = (fileName, content) =>
-    cy.writeFile(`./cypress/fixtures/output/${fileName}.txt`, content);
 
 }
   
