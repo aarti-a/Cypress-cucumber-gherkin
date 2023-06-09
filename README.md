@@ -2,13 +2,15 @@
 
 To run this code locally, download the repo and create an cypress.env.json file at the root level
 
-Add yours following values under username and password. 
+Add  following values under username and password. 
 
 ## Cypress.env.json
 {
     "username": "",
 
-    "password": ""
+    "password": "",
+    
+    "api_key" :""
 }
 
 The login feature file will run the login test case for starbucks.com 
